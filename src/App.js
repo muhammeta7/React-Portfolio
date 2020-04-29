@@ -1,11 +1,17 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
+import Navigation from "./components/navbar/Navigation";
+import { BrowserRouter as Router } from "react-router-dom";
+import AboutMe from "./components/about-me/AboutMe";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hey Guys</h1>
-    </div>
+    <Router>
+      <div className="App">
+        <Navigation />
+        <AboutMe />
+      </div>
+    </Router>
   );
 }
 
