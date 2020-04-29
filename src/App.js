@@ -1,15 +1,15 @@
 import React from "react";
-import "./App.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "bootstrap-css-only/css/bootstrap.min.css";
+import "./App.scss";
 import Navigation from "./components/navbar/Navigation";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Navigation />
-      <h1>Hey Guys</h1>
-    </div>
+    <Router>
+      <div className="App">
+        <Navigation />
+      </div>
+    </Router>
   );
 }
 
