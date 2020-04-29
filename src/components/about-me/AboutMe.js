@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Card } from "react-bootstrap";
 import { Row, Col, Container } from "react-bootstrap";
 import Contact from "../contact/Contact";
+import Education from "../education/Education";
 
 export default class AboutMe extends Component {
   render() {
@@ -36,7 +37,14 @@ export default class AboutMe extends Component {
             </Card>
           </Col>
           <Col>
-            <Contact />
+            <Row>
+              <Col>
+                <Contact />
+              </Col>
+              <Col>
+                <Education />
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>
