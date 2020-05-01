@@ -1,22 +1,43 @@
-import React from "react";
-// import { Navbar, Nav } from "react-bootstrap";
-// import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "@reach/router";
+import "./navigation.scss";
 
-function Navigation() {
+function Navigation({
+  background,
+  hoverBackground,
+  linkColor,
+  navLinks,
+  logo,
+}) {
+  const [hoverIndex, setHoverIndex] = useState(-1);
+  const [navOpen, setNavOpen] = useState(false);
+
   return (
-    // <Navbar expand="lg" className="navigation">
-    //   <Navbar.Brand className="nav-items">Muhammet Aydin</Navbar.Brand>
-    //   <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggle" />
-    //   <Navbar.Collapse id="basic-navbar-nav">
-    //     <Nav className="mr-auto">
-    //       <Nav.Link className="nav-items">About Me</Nav.Link>
-    //       <Nav.Link className="nav-items">Projects</Nav.Link>
-    //       <Nav.Link className="nav-items">Skills</Nav.Link>
-    //       <Nav.Link className="nav-items">Contact</Nav.Link>
-    //     </Nav>
-    //   </Navbar.Collapse>
-    // </Navbar>
-    <div>hi</div>
+    <nav className="responsive-toolbar" style={{ background }}>
+      <ul style={{ background }} className={navOpen ? "active" : ""}>
+        <figure onClick={() => setNavOpen(!navOpen)}>
+          <img src={logo} height="40px" alt="logo-nav-toggler" />
+        </figure>
+        {navLinks.map((link, index) => (
+          <li
+            key={index}
+            onMouseEnter={() => setHoverIndex(index)}
+            onMouseLeave={() => setHoverIndex(-1)}
+            style={{
+              background:
+                hoverIndex === index
+                  ? hoverBackground || "#999 !important"
+                  : "",
+            }}
+          >
+            <Link to={link.path} style={{ color: linkColor }}>
+              {link.text}
+              <i className={link.icon} />
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
 

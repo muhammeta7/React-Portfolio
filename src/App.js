@@ -1,23 +1,54 @@
 import React from "react";
 import "./App.scss";
-import ToolBar from "./components/navbar/ToolBar";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router } from "@reach/router";
 import AboutMe from "./components/about-me/AboutMe";
 import ProjectList from "./components/projects/ProjectList";
-import SideDrawer from "./components/navbar/SideDrawer";
+import Navigation from "./components/navbar/Navigation";
+import logo from "./logo.svg";
 
 function App() {
+  const navLinks = [
+    {
+      text: "Home",
+      path: "/home",
+      icon: "ion-ios-home",
+    },
+    {
+      text: "AboutMe",
+      path: "/aboutme",
+      icon: "ion-ios-business",
+    },
+    {
+      text: "ProjectList",
+      path: "/projects",
+      icon: "ion-ios-briefcase",
+    },
+    {
+      text: "Contact",
+      path: "/contact",
+      icon: "ion-ios-megaphone",
+    },
+    {
+      text: "Education",
+      path: "/education",
+      icon: "ion-ios-briefcase",
+    },
+  ];
+
   return (
-    <Router>
-      <div className="App" style={{ height: "100%" }}>
-        <ToolBar />
-        <SideDrawer />
-        <Switch>
-          <Route path="/" component={AboutMe} />
-          <Route path="/projects" component={ProjectList} />
-        </Switch>
-      </div>
-    </Router>
+    <div className="App">
+      <Navigation
+        navLinks={navLinks}
+        logo={logo}
+        background="#fff"
+        hoverBackground="#34384B"
+        linkColor="#777"
+      />
+      <Router>
+        <AboutMe path="/aboutme" />
+        <ProjectList path="/projects" />
+      </Router>
+    </div>
   );
 }
 
