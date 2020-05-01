@@ -4,6 +4,8 @@ import { Router } from "@reach/router";
 import AboutMe from "./components/about-me/AboutMe";
 import ProjectList from "./components/projects/ProjectList";
 import Navigation from "./components/navbar/Navigation";
+import Contact from "./components/contact/Contact";
+import Education from "./components/education/Education";
 import logo from "./logo.svg";
 
 function App() {
@@ -15,23 +17,28 @@ function App() {
     },
     {
       text: "AboutMe",
-      path: "/aboutme",
-      icon: "ion-ios-business",
+      path: "/about",
+      icon: "ion-ios-information-circle-outline",
     },
     {
-      text: "ProjectList",
+      text: "Portfolio",
       path: "/projects",
-      icon: "ion-ios-briefcase",
+      icon: "ion-ios-folder",
     },
     {
       text: "Contact",
       path: "/contact",
-      icon: "ion-ios-megaphone",
+      icon: "ion-ios-call",
     },
     {
       text: "Education",
       path: "/education",
-      icon: "ion-ios-briefcase",
+      icon: "ion-ios-school",
+    },
+    {
+      text: "Skills",
+      path: "/skills",
+      icon: "ion-ios-git-branch",
     },
   ];
 
@@ -44,10 +51,14 @@ function App() {
         hoverBackground="#34384B"
         linkColor="#777"
       />
-      <Router>
-        <AboutMe path="/aboutme" />
-        <ProjectList path="/projects" />
-      </Router>
+      <div className="container">
+        <Router>
+          <AboutMe path="/about" />
+          <ProjectList path="/projects" />
+          <Contact path="/contact" />
+          <Education path="/education" />
+        </Router>
+      </div>
     </div>
   );
 }

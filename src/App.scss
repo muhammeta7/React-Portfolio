@@ -7,3 +7,14 @@
 body {
   background: url("https://i.imgur.com/cK1tC6c.png");
 }
+
+.App {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 6%;
+}

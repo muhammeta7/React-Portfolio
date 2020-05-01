@@ -6,12 +6,12 @@ import chat from "../../assets/chat.png";
 export default class ProjectList extends Component {
   render() {
     return (
-      <div className="container-fluid d-flex justify-content-center">
+      <div className="project-list">
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-6 space">
             <ProjectCard imgsrc={workout} />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 space">
             <ProjectCard imgsrc={chat} />
           </div>
         </div>
