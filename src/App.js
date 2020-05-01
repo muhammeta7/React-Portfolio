@@ -1,47 +1,55 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.scss";
-import ToolBar from "./components/navbar/ToolBar";
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import AboutMe from "./components/about-me/AboutMe";
-// import ProjectList from "./components/projects/ProjectList";
-import SideDrawer from "./components/navbar/SideDrawer";
-import BackDrop from "./components/backdrop/BackDrop";
+import { Router } from "@reach/router";
+import AboutMe from "./components/about-me/AboutMe";
+import ProjectList from "./components/projects/ProjectList";
+import Navigation from "./components/navbar/Navigation";
+import logo from "./logo.svg";
 
-class App extends Component {
-  state = {
-    sideDrawerOpen: false,
-  };
+function App() {
+  const navLinks = [
+    {
+      text: "Home",
+      path: "/home",
+      icon: "ion-ios-home",
+    },
+    {
+      text: "AboutMe",
+      path: "/aboutme",
+      icon: "ion-ios-business",
+    },
+    {
+      text: "ProjectList",
+      path: "/projects",
+      icon: "ion-ios-briefcase",
+    },
+    {
+      text: "Contact",
+      path: "/contact",
+      icon: "ion-ios-megaphone",
+    },
+    {
+      text: "Education",
+      path: "/education",
+      icon: "ion-ios-briefcase",
+    },
+  ];
 
-  drawerToggleClickHandler = () => {
-    this.setState((prevState) => {
-      return { sideDrawerOpen: !prevState.sideDrawerOpen };
-    });
-  };
-
-  backdropClickHandler = () => {
-    this.setState({ sideDrawerOpen: false });
-  };
-
-  render() {
-    let backdrop;
-    let sideDrawer;
-
-    if (this.state.sideDrawerOpen) {
-      backdrop = <BackDrop click={this.backdropClickHandler} />;
-      sideDrawer = <SideDrawer />;
-    }
-
-    return (
-      <div style={{ height: "100%" }}>
-        <ToolBar drawerClickHandler={this.drawerToggleClickHandler} />
-        {sideDrawer}
-        {backdrop}
-        <main style={{ marginTop: "64px" }}>
-          <p>This is the page content!</p>
-        </main>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Navigation
+        navLinks={navLinks}
+        logo={logo}
+        background="#fff"
+        hoverBackground="#34384B"
+        linkColor="#777"
+      />
+      <Router>
+        <AboutMe path="/aboutme" />
+        <ProjectList path="/projects" />
+      </Router>
+    </div>
+  );
 }
 
 export default App;
