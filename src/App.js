@@ -1,24 +1,47 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.scss";
 import ToolBar from "./components/navbar/ToolBar";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import AboutMe from "./components/about-me/AboutMe";
-import ProjectList from "./components/projects/ProjectList";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import AboutMe from "./components/about-me/AboutMe";
+// import ProjectList from "./components/projects/ProjectList";
 import SideDrawer from "./components/navbar/SideDrawer";
+import BackDrop from "./components/backdrop/BackDrop";
 
-function App() {
-  return (
-    <Router>
-      <div className="App" style={{ height: "100%" }}>
-        <ToolBar />
-        <SideDrawer />
-        <Switch>
-          <Route path="/" component={AboutMe} />
-          <Route path="/projects" component={ProjectList} />
-        </Switch>
+class App extends Component {
+  state = {
+    sideDrawerOpen: false,
+  };
+
+  drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    });
+  };
+
+  backdropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false });
+  };
+
+  render() {
+    let backdrop;
+    let sideDrawer;
+
+    if (this.state.sideDrawerOpen) {
+      backdrop = <BackDrop click={this.backdropClickHandler} />;
+      sideDrawer = <SideDrawer />;
+    }
+
+    return (
+      <div style={{ height: "100%" }}>
+        <ToolBar drawerClickHandler={this.drawerToggleClickHandler} />
+        {sideDrawer}
+        {backdrop}
+        <main style={{ marginTop: "64px" }}>
+          <p>This is the page content!</p>
+        </main>
       </div>
-    </Router>
-  );
+    );
+  }
 }
 
 export default App;

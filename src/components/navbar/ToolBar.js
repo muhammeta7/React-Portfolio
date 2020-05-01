@@ -4,21 +4,28 @@ import DrawerToggle from "./DrawerToggle";
 
 const toolbar = (props) => (
   <header className="toolbar">
-    <nav className="toolbar-navigation">
-      <div>
-        <DrawerToggle />
+    <nav className="toolbar__navigation">
+      <div className="toolbar__toggle-button">
+        <DrawerToggle click={props.drawerClickHandler} />
       </div>
-      <div className="toolbar-logo">
+      <div />
+      <div className="toolbar__logo">
         <a href="/">Muhammet Aydin</a>
       </div>
-      <div className="spacer"></div>
-      <div className="toolbar-items">
+      <div className="spacer" />
+      <div className="toolbar_navigation-items">
         <ul>
           <li>
             <a href="/">About Me</a>
           </li>
           <li>
             <a href="/">Projects</a>
+          </li>
+          <li>
+            <a href="/">Skills</a>
+          </li>
+          <li>
+            <a href="/">Contact</a>
           </li>
         </ul>
       </div>
