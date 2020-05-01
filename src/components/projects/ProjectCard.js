@@ -8,8 +8,8 @@ const ProjectCard = (props) => {
         <img src={props.imgsrc} alt="/" className="card-img-top" />
       </div>
       <div className="card-body text-dark">
-        <h4 className="card-title">Project1</h4>
-        <p className="card-text text-secondary">Project Details</p>
+        <h5 className="card-title">Project1</h5>
+        <p className="card-text text-secondary text-left">Project Details</p>
       </div>
     </div>
   );
