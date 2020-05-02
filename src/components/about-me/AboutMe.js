@@ -4,8 +4,8 @@ import "../../styles/aboutme.scss";
 export default class AboutMe extends Component {
   render() {
     return (
-      <div className="container-fluid">
-        <div className="card text-center">
+      <div className="about-me">
+        <div className="about-card text-center">
           <div>
             <img
               src="https://i.imgur.com/En7ZfuO.jpg"

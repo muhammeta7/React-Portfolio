@@ -1,9 +1,6 @@
 .card {
-  display: inline-block;
-  justify-content: space-evenly;
-  width: 26rem;
+  width: 100%;
   margin-bottom: 5%;
-  margin-left: 7%;
 }
 
 .card:hover {
@@ -19,17 +16,31 @@
   padding: 0.4rem 1.4rem;
 }
 
-// .space {
-//   margin-right: 2%;
-// }
-
 .project-list {
-  margin-bottom: 5%;
-  margin-left: 7%;
-  display: flex;
-  align-items: space-evenly;
+  margin: 0 auto;
+  width: 85%;
 }
 
 .card-img-top {
   height: 16rem;
+}
+
+.project {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+
+  &-card {
+    width: 26rem;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .project {
+    margin-left: 7.5%;
+  }
 }
