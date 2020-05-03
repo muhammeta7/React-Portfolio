@@ -51,7 +51,7 @@ function App() {
         hoverBackground="#34384B"
         linkColor="#777"
       />
-      <div className="container">
+      <div className="components">
         <Router>
           <AboutMe path="/about" />
           <ProjectList path="/projects" />

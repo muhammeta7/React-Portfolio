@@ -11,3 +11,9 @@
 .contact-info {
   padding-bottom: 0;
 }
+
+@media only screen and (max-width: 800px) {
+  .education {
+    margin-left: 10%;
+  }
+}
